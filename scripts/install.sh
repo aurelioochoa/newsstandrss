@@ -13,5 +13,5 @@ dev 'dpkg -i /tmp/newsstandrss.deb && rm /tmp/newsstandrss.deb'
 # which leaves MobileSubstrate in safe mode. Give backboardd a moment first.
 if [ "$1" != "--no-respring" ]; then
 	sleep 4
-	dev 'killall -9 SpringBoard' || true
+	dev 'killall -9 backboardd' || true
 fi

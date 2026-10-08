@@ -23,7 +23,9 @@
 
 @interface SBIcon : NSObject
 - (NSString *)applicationBundleID;
+- (UIImage *)generateIconImage:(int)format;
 - (void)reloadIconImagePurgingImageCache:(BOOL)purge;
+- (void)purgeCachedImages;
 - (BOOL)allowsUninstall;
 @end
 
@@ -33,8 +35,12 @@
 @interface SBNewsstandApplicationIcon : SBApplicationIcon
 @end
 
+@interface SBFolder : NSObject
+@end
+
 @interface SBIconModel : NSObject
 - (SBApplicationIcon *)applicationIconForDisplayIdentifier:(NSString *)identifier;
+- (SBFolder *)newsstandFolder;
 @end
 
 @interface SBIconController : NSObject
@@ -53,6 +59,9 @@
 
 static char NRSSAddButtonKey;
 static __weak SBNewsstandFolderView *NRSSFolderView;
+#ifdef NRSS_DIAGNOSTICS
+static int NRSSStockCoverImageTestMode;
+#endif
 
 static SBApplicationController *NRSSApplications(void) {
     return [%c(SBApplicationController) sharedInstance];
@@ -344,6 +353,20 @@ static void NRSSPlaceAddButton(SBNewsstandFolderView *folderView) {
 
 %end
 
+#pragma mark - Restoring the shelf after another app
+
+%hook SBIconController
+
+- (void)openFolder:(SBFolder *)folder animated:(BOOL)animated {
+    // Covers-changed notifications repair an open shelf. Opening it again also needs to repair
+    // images SpringBoard may have discarded while Settings or another app was in the foreground.
+    if (folder && folder == [[self model] newsstandFolder])
+        NRSSReloadCovers();
+    %orig;
+}
+
+%end
+
 #pragma mark - Cover images
 
 // iOS 6 builds the shelf image from the app icon, not from UINewsstandIcon, so the cover is supplied here
@@ -352,15 +375,26 @@ static void NRSSPlaceAddButton(SBNewsstandFolderView *folderView) {
 
 - (UIImage *)generateIconImage:(int)format {
     UIImage *original = %orig;
+#ifdef NRSS_DIAGNOSTICS
+    if (format == 7 || format == 8) {
+        if (NRSSStockCoverImageTestMode == 1)
+            original = nil;
+        else if (NRSSStockCoverImageTestMode == 2)
+            original = [self generateIconImage:0];
+    }
+#endif
     NSString *feedID = NRSSFeedIDForBundleID([self applicationBundleID]);
-    if (!feedID || original.size.width < 60)
+    if (!feedID || (format != 7 && format != 8))
         return original;
     UIImage *cover = [UIImage imageWithContentsOfFile:NRSSCoverPathForFeedID(feedID, YES)];
     if (cover.size.width < 1 || cover.size.height < 1)
         return original;
-    CGFloat fit = MIN(original.size.width / cover.size.width, original.size.height / cover.size.height);
+    // SpringBoard can discard the stock image or return a small generic icon after another app.
+    // Select by format, not stock-image size: 7 is the shelf (104pt), 8 the thumbnail (71pt).
+    CGFloat edge = format == 7 ? 104 : 71;
+    CGFloat fit = MIN(edge / cover.size.width, edge / cover.size.height);
     CGSize size = CGSizeMake(round(cover.size.width * fit), round(cover.size.height * fit));
-    UIGraphicsBeginImageContextWithOptions(size, YES, original.scale);
+    UIGraphicsBeginImageContextWithOptions(size, YES, [UIScreen mainScreen].scale);
     [cover drawInRect:CGRectMake(0, 0, size.width, size.height)];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -431,13 +465,6 @@ static void NRSSRefreshRequested(CFNotificationCenterRef center, void *observer,
 #ifdef NRSS_DIAGNOSTICS
 #pragma mark - Device test hooks (diagnostic builds only)
 
-@interface SBFolder : NSObject
-@end
-
-@interface SBIconModel (NRSSDiagnostics)
-- (SBFolder *)newsstandFolder;
-@end
-
 @interface SBIconController (NRSSDiagnostics)
 - (void)openFolder:(SBFolder *)folder animated:(BOOL)animated;
 - (void)closeFolderAnimated:(BOOL)animated;
@@ -470,6 +497,7 @@ extern "C" CGImageRef UIGetScreenImage(void);
 
 @interface UIApplication (NRSSDiagnostics)
 - (BOOL)launchApplicationWithIdentifier:(NSString *)identifier suspended:(BOOL)suspended;
+- (void)_handleMenuButtonEvent;
 @end
 
 static UIView *NRSSFindView(UIView *view, Class viewClass) {
@@ -543,6 +571,27 @@ static void NRSSRunTest(void) {
         SBApplication *application = [applications applicationWithDisplayIdentifier:bundleID];
         if (application)
             [applications uninstallApplication:application];
+    } else if ([operation isEqualToString:@"purgeCovers"]) {
+        for (NSDictionary *record in NRSSLoadFeeds())
+            [[[icons model] applicationIconForDisplayIdentifier:NRSSBundleIDForFeedID([record objectForKey:@"id"])] purgeCachedImages];
+    } else if ([operation isEqualToString:@"coverRecovery"]) {
+        NSMutableDictionary *images = [NSMutableDictionary dictionary];
+        for (int mode = 1; mode <= 2; mode++) {
+            NRSSStockCoverImageTestMode = mode;
+            NSMutableDictionary *feeds = [NSMutableDictionary dictionary];
+            for (NSDictionary *record in NRSSLoadFeeds()) {
+                id icon = [[icons model] applicationIconForDisplayIdentifier:NRSSBundleIDForFeedID([record objectForKey:@"id"])];
+                NSMutableDictionary *formats = [NSMutableDictionary dictionary];
+                for (int format = 7; format <= 8; format++) {
+                    UIImage *image = [icon generateIconImage:format];
+                    [formats setObject:NSStringFromCGSize(image.size) forKey:[NSString stringWithFormat:@"%d", format]];
+                }
+                [feeds setObject:formats forKey:[record objectForKey:@"id"]];
+            }
+            [images setObject:feeds forKey:mode == 1 ? @"missing" : @"small"];
+        }
+        NRSSStockCoverImageTestMode = 0;
+        [result setObject:images forKey:@"images"];
     } else if ([operation isEqualToString:@"iconInfo"]) {
         id icon = [[icons model] applicationIconForDisplayIdentifier:[request objectForKey:@"bundleID"]];
         NSMutableDictionary *formats = [NSMutableDictionary dictionary];
@@ -561,7 +610,7 @@ static void NRSSRunTest(void) {
     } else if ([operation isEqualToString:@"openURL"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[request objectForKey:@"url"]]];
     } else if ([operation isEqualToString:@"home"]) {
-        [[UIApplication sharedApplication] launchApplicationWithIdentifier:@"com.apple.springboard" suspended:NO];
+        [[UIApplication sharedApplication] _handleMenuButtonEvent];
     } else if ([operation isEqualToString:@"screenshot"]) {
         // The real screen contents, including whichever app is in front.
         CGImageRef screen = UIGetScreenImage();
