@@ -4,3 +4,5 @@ vendor/build/
 tests/nrss-probe
 tests/nrss-notify
 research/
+__pycache__/
+*.pyc

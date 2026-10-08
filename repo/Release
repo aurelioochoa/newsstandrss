@@ -1,0 +1,16 @@
+Origin: NewsstandRSS
+Label: NewsstandRSS
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: NewsstandRSS: RSS magazines for iOS 6 Newsstand
+MD5Sum:
+ cf3f7ea34e5b87442d51aab6d2e10d25      892 Packages
+ b9303f67d7af407b091e49fc970db90d      546 Packages.gz
+ 8c1ec18945bb14b7bdbe3480f1b71bb4      609 Packages.bz2
+SHA256:
+ 9eb92d6abd80903adb3a8c8f425ad6225cd303d5a4d3c3c5cad69484b7b8b629      892 Packages
+ daa168d30134613dede51bded72c085def5be036e59c272cc400463c6d06366f      546 Packages.gz
+ 8c603cba52fe8e44b6623b72bfe8e448fab35535a865988f899d519f2de6499b      609 Packages.bz2

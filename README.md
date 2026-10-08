@@ -8,6 +8,23 @@ magazine on the shelf, with a cover drawn from its latest headlines and article 
 a reader with the article list and a clean article view. Package identifier: `com.aurelio.newsstandrss`.
 Tested on an iPhone 4 (iPhone3,2) running iOS 6.1.3.
 
+## Install from Cydia
+
+1. In Cydia, open **Sources → Edit → Add** and enter:
+
+   ```
+   https://aurelioochoa.github.io/newsstandrss/repo/
+   ```
+
+2. Open the **NewsstandRSS** source, select **NewsstandRSS**, and tap **Install**.
+3. Restart SpringBoard when Cydia asks, then open Newsstand and tap **+ RSS** to add a feed.
+
+Requires a jailbroken device running **iOS 6**. Cydia installs MobileSubstrate, PreferenceLoader and
+UIKit Tools as dependencies. Refresh Cydia's sources to receive future updates.
+
+Like the TorchLock source, GitHub Pages uses modern HTTPS. If stock iOS 6 cannot load the source,
+install **TLS Fix** (`com.skyglow.tlsfix`) from `http://cydia.skyglow.es/` first.
+
 ## Using it
 
 - **Add**: Newsstand → **+**, type `example.com` or a feed address. Settings → NewsstandRSS → *Add Feed…* also works.
@@ -87,3 +104,11 @@ screen captures are saved in `/tmp/nrss-reader-initial.png` and `/tmp/nrss-reade
 
 Removing the package deletes the magazines but keeps `/var/mobile/Library/NewsstandRSS`; reinstalling recreates
 them from that list.
+
+## Publishing Cydia updates
+
+1. Bump `Version` in `control`; published packages are kept unchanged so installed devices can detect updates.
+2. Run `make cydia` to build a release with gzip archives, copy it to `repo/debs/`, and generate `Packages`,
+   `Packages.gz`, `Packages.bz2` and `Release`.
+3. Run `make check-cydia`, commit the source, package and indexes, and push to `main`. GitHub Pages serves the
+   repository root, with `.nojekyll` preserving the flat APT source at `repo/`.
