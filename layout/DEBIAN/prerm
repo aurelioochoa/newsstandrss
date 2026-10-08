@@ -1,0 +1,7 @@
+#!/bin/sh
+# Remove the magazines only when the package is removed, not on upgrade. Feed data in
+# /var/mobile/Library/NewsstandRSS is kept.
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+	/usr/libexec/newsstandrss-helper remove-all
+fi
+exit 0

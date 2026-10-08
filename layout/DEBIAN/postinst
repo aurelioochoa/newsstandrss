@@ -1,0 +1,8 @@
+#!/bin/sh
+chown root:wheel /usr/libexec/newsstandrss-helper
+chmod 4755 /usr/libexec/newsstandrss-helper
+mkdir -p /var/mobile/Library/NewsstandRSS/Covers /var/mobile/Library/NewsstandRSS/Cache
+chown -R mobile:mobile /var/mobile/Library/NewsstandRSS
+# Rebuild existing magazines from the new reader template.
+/usr/libexec/newsstandrss-helper reinstall-all
+exit 0

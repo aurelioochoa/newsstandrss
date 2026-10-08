@@ -1,0 +1,682 @@
+{
+ "general": [
+  [
+   "BBC News",
+   "https://feeds.bbci.co.uk/news/world/rss.xml"
+  ],
+  [
+   "BBC Mundo",
+   "https://feeds.bbci.co.uk/mundo/rss.xml"
+  ],
+  [
+   "The Guardian World",
+   "https://www.theguardian.com/world/rss"
+  ],
+  [
+   "NYT World",
+   "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+  ],
+  [
+   "Al Jazeera",
+   "https://www.aljazeera.com/xml/rss/all.xml"
+  ],
+  [
+   "DW Español",
+   "https://rss.dw.com/xml/rss-sp-all"
+  ],
+  [
+   "France 24 Español",
+   "https://www.france24.com/es/rss"
+  ],
+  [
+   "CNN en Español",
+   "https://cnnespanol.cnn.com/feed/"
+  ],
+  [
+   "NPR News",
+   "https://feeds.npr.org/1001/rss.xml"
+  ],
+  [
+   "The Verge",
+   "https://www.theverge.com/rss/index.xml"
+  ],
+  [
+   "Ars Technica",
+   "https://feeds.arstechnica.com/arstechnica/index"
+  ],
+  [
+   "Hacker News",
+   "https://hnrss.org/frontpage"
+  ],
+  [
+   "Wired",
+   "https://www.wired.com/feed/rss"
+  ],
+  [
+   "Engadget",
+   "https://www.engadget.com/rss.xml"
+  ],
+  [
+   "Xataka",
+   "https://www.xataka.com/feedburner.xml"
+  ],
+  [
+   "NASA",
+   "https://www.nasa.gov/feed/"
+  ],
+  [
+   "ScienceDaily",
+   "https://www.sciencedaily.com/rss/all.xml"
+  ],
+  [
+   "ESPN",
+   "https://www.espn.com/espn/rss/news"
+  ],
+  [
+   "xkcd",
+   "https://xkcd.com/atom.xml"
+  ]
+ ],
+ "countries": {
+  "EC": [
+   "Ecuador",
+   "Ecuador",
+   [
+    [
+     "El Universo",
+     "https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "El Comercio",
+     "https://www.elcomercio.com/feed/"
+    ],
+    [
+     "Expreso",
+     "https://www.expreso.ec/rss/home.xml"
+    ],
+    [
+     "Ecuavisa",
+     "https://www.ecuavisa.com/rss/feed.xml"
+    ],
+    [
+     "Teleamazonas",
+     "https://www.teleamazonas.com/rss/home.xml"
+    ],
+    [
+     "Extra",
+     "https://www.extra.ec/rss/home.xml"
+    ],
+    [
+     "La Hora",
+     "https://www.lahora.com.ec/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Metro Ecuador",
+     "https://www.metroecuador.com.ec/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "El Mercurio",
+     "https://elmercurio.com.ec/feed/"
+    ],
+    [
+     "El Diario",
+     "https://www.eldiario.ec/rss/global.xml"
+    ],
+    [
+     "Plan V",
+     "https://planv.com.ec/feed/"
+    ],
+    [
+     "Radio Pichincha",
+     "https://www.radiopichincha.com/feed/"
+    ]
+   ]
+  ],
+  "MX": [
+   "México",
+   "Mexico",
+   [
+    [
+     "El Universal",
+     "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "La Jornada",
+     "https://www.jornada.com.mx/rss/edicion.xml"
+    ],
+    [
+     "Proceso",
+     "https://www.proceso.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Excélsior",
+     "https://www.excelsior.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Animal Político",
+     "https://www.animalpolitico.com/feed"
+    ],
+    [
+     "El Financiero",
+     "https://www.elfinanciero.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Milenio",
+     "https://www.milenio.com/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Expansión",
+     "https://expansion.mx/rss"
+    ]
+   ]
+  ],
+  "ES": [
+   "España",
+   "Spain",
+   [
+    [
+     "El País",
+     "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"
+    ],
+    [
+     "El Mundo",
+     "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml"
+    ],
+    [
+     "elDiario.es",
+     "https://www.eldiario.es/rss/"
+    ],
+    [
+     "20minutos",
+     "https://www.20minutos.es/rss/"
+    ],
+    [
+     "ABC",
+     "https://www.abc.es/rss/2.0/portada/"
+    ],
+    [
+     "La Vanguardia",
+     "https://www.lavanguardia.com/rss/home.xml"
+    ],
+    [
+     "RTVE",
+     "https://api2.rtve.es/rss/temas_noticias.xml"
+    ],
+    [
+     "Xataka",
+     "https://www.xataka.com/feedburner.xml"
+    ]
+   ]
+  ],
+  "AR": [
+   "Argentina",
+   "Argentina",
+   [
+    [
+     "Clarín",
+     "https://www.clarin.com/rss/lo-ultimo/"
+    ],
+    [
+     "La Nación",
+     "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "Infobae",
+     "https://www.infobae.com/arc/outboundfeeds/rss/"
+    ],
+    [
+     "Página 12",
+     "https://www.pagina12.com.ar/rss/portada"
+    ],
+    [
+     "Perfil",
+     "https://www.perfil.com/feed"
+    ],
+    [
+     "Ámbito",
+     "https://www.ambito.com/rss/pages/home.xml"
+    ]
+   ]
+  ],
+  "CO": [
+   "Colombia",
+   "Colombia",
+   [
+    [
+     "El Tiempo",
+     "https://www.eltiempo.com/rss/colombia.xml"
+    ],
+    [
+     "El Espectador",
+     "https://www.elespectador.com/feed/"
+    ],
+    [
+     "Semana",
+     "https://www.semana.com/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "El Colombiano",
+     "https://www.elcolombiano.com/rss/colombia.xml"
+    ],
+    [
+     "La Silla Vacía",
+     "https://www.lasillavacia.com/feed/"
+    ],
+    [
+     "Pulzo",
+     "https://www.pulzo.com/rss"
+    ]
+   ]
+  ],
+  "CL": [
+   "Chile",
+   "Chile",
+   [
+    [
+     "La Tercera",
+     "https://www.latercera.com/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "El Mostrador",
+     "https://www.elmostrador.cl/feed/"
+    ],
+    [
+     "Cooperativa",
+     "https://www.cooperativa.cl/noticias/site/tax/port/all/rss_3___1.xml"
+    ],
+    [
+     "BioBioChile",
+     "https://www.biobiochile.cl/lista/categorias/nacional/feed"
+    ],
+    [
+     "CIPER",
+     "https://www.ciperchile.cl/feed/"
+    ],
+    [
+     "El Desconcierto",
+     "https://www.eldesconcierto.cl/feed"
+    ]
+   ]
+  ],
+  "PE": [
+   "Perú",
+   "Peru",
+   [
+    [
+     "El Comercio",
+     "https://elcomercio.pe/arcio/rss/"
+    ],
+    [
+     "RPP",
+     "https://rpp.pe/feed"
+    ],
+    [
+     "Perú21",
+     "https://peru21.pe/arcio/rss/"
+    ],
+    [
+     "Gestión",
+     "https://gestion.pe/arcio/rss/"
+    ],
+    [
+     "La República",
+     "https://larepublica.pe/rss/politica.xml"
+    ],
+    [
+     "Infobae Perú",
+     "https://www.infobae.com/arc/outboundfeeds/rss/category/peru/"
+    ]
+   ]
+  ],
+  "VE": [
+   "Venezuela",
+   "Venezuela",
+   [
+    [
+     "El Nacional",
+     "https://www.elnacional.com/feed/"
+    ],
+    [
+     "Efecto Cocuyo",
+     "https://efectococuyo.com/feed/"
+    ],
+    [
+     "El Pitazo",
+     "https://elpitazo.net/feed/"
+    ],
+    [
+     "Tal Cual",
+     "https://talcualdigital.com/feed/"
+    ],
+    [
+     "El Estímulo",
+     "https://elestimulo.com/feed/"
+    ]
+   ]
+  ],
+  "UY": [
+   "Uruguay",
+   "Uruguay",
+   [
+    [
+     "Montevideo Portal",
+     "https://www.montevideo.com.uy/anxml.aspx?59"
+    ],
+    [
+     "la diaria",
+     "https://ladiaria.com.uy/feeds/articulos/"
+    ],
+    [
+     "El Observador",
+     "https://www.elobservador.com.uy/rss/home.xml"
+    ],
+    [
+     "Subrayado",
+     "https://www.subrayado.com.uy/rss/pages/home.xml"
+    ]
+   ]
+  ],
+  "US": [
+   "Estados Unidos",
+   "United States",
+   [
+    [
+     "The New York Times",
+     "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    ],
+    [
+     "NPR",
+     "https://feeds.npr.org/1001/rss.xml"
+    ],
+    [
+     "The Washington Post",
+     "https://feeds.washingtonpost.com/rss/national"
+    ],
+    [
+     "CBS News",
+     "https://www.cbsnews.com/latest/rss/main"
+    ],
+    [
+     "ABC News",
+     "https://abcnews.go.com/abcnews/topstories"
+    ],
+    [
+     "Fox News",
+     "https://moxie.foxnews.com/google-publisher/latest.xml"
+    ],
+    [
+     "Politico",
+     "https://rss.politico.com/politics-news.xml"
+    ],
+    [
+     "Univision Noticias",
+     "https://www.univision.com/feeds/noticias"
+    ]
+   ]
+  ],
+  "GB": [
+   "Reino Unido",
+   "United Kingdom",
+   [
+    [
+     "BBC News",
+     "https://feeds.bbci.co.uk/news/rss.xml"
+    ],
+    [
+     "The Guardian",
+     "https://www.theguardian.com/uk/rss"
+    ],
+    [
+     "The Independent",
+     "https://www.independent.co.uk/news/uk/rss"
+    ],
+    [
+     "Sky News",
+     "https://feeds.skynews.com/feeds/rss/home.xml"
+    ],
+    [
+     "The Telegraph",
+     "https://www.telegraph.co.uk/rss.xml"
+    ]
+   ]
+  ],
+  "CA": [
+   "Canadá",
+   "Canada",
+   [
+    [
+     "CBC News",
+     "https://www.cbc.ca/webfeed/rss/rss-topstories"
+    ],
+    [
+     "Global News",
+     "https://globalnews.ca/feed/"
+    ],
+    [
+     "CTV News",
+     "https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009"
+    ],
+    [
+     "La Presse",
+     "https://www.lapresse.ca/actualites/rss"
+    ],
+    [
+     "Radio-Canada",
+     "https://ici.radio-canada.ca/rss/4159"
+    ]
+   ]
+  ],
+  "BR": [
+   "Brasil",
+   "Brazil",
+   [
+    [
+     "g1",
+     "https://g1.globo.com/rss/g1/"
+    ],
+    [
+     "Folha de S.Paulo",
+     "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml"
+    ],
+    [
+     "BBC Brasil",
+     "https://feeds.bbci.co.uk/portuguese/rss.xml"
+    ],
+    [
+     "CNN Brasil",
+     "https://www.cnnbrasil.com.br/feed/"
+    ],
+    [
+     "UOL",
+     "https://rss.uol.com.br/feed/noticias.xml"
+    ],
+    [
+     "Poder360",
+     "https://www.poder360.com.br/feed/"
+    ]
+   ]
+  ],
+  "FR": [
+   "Francia",
+   "France",
+   [
+    [
+     "Le Monde",
+     "https://www.lemonde.fr/rss/une.xml"
+    ],
+    [
+     "France 24",
+     "https://www.france24.com/fr/rss"
+    ],
+    [
+     "Le Figaro",
+     "https://www.lefigaro.fr/rss/figaro_actualites.xml"
+    ],
+    [
+     "Libération",
+     "https://www.liberation.fr/arc/outboundfeeds/rss/?outputType=xml"
+    ],
+    [
+     "franceinfo",
+     "https://www.francetvinfo.fr/titres.rss"
+    ],
+    [
+     "20 Minutes",
+     "https://www.20minutes.fr/feeds/rss-une.xml"
+    ]
+   ]
+  ],
+  "DE": [
+   "Alemania",
+   "Germany",
+   [
+    [
+     "tagesschau",
+     "https://www.tagesschau.de/xml/rss2/"
+    ],
+    [
+     "Der Spiegel",
+     "https://www.spiegel.de/schlagzeilen/index.rss"
+    ],
+    [
+     "Die Zeit",
+     "https://newsfeed.zeit.de/index"
+    ],
+    [
+     "FAZ",
+     "https://www.faz.net/rss/aktuell/"
+    ],
+    [
+     "Süddeutsche Zeitung",
+     "https://rss.sueddeutsche.de/rss/Topthemen"
+    ],
+    [
+     "heise online",
+     "https://www.heise.de/rss/heise-atom.xml"
+    ]
+   ]
+  ],
+  "IT": [
+   "Italia",
+   "Italy",
+   [
+    [
+     "ANSA",
+     "https://www.ansa.it/sito/notizie/topnews/topnews_rss.xml"
+    ],
+    [
+     "Corriere della Sera",
+     "https://xml2.corriereobjects.it/rss/homepage.xml"
+    ],
+    [
+     "la Repubblica",
+     "https://www.repubblica.it/rss/homepage/rss2.0.xml"
+    ],
+    [
+     "Il Post",
+     "https://www.ilpost.it/feed/"
+    ],
+    [
+     "Sky TG24",
+     "https://tg24.sky.it/rss/tg24.xml"
+    ]
+   ]
+  ],
+  "PT": [
+   "Portugal",
+   "Portugal",
+   [
+    [
+     "Público",
+     "https://feeds.feedburner.com/PublicoRSS"
+    ],
+    [
+     "Observador",
+     "https://observador.pt/feed/"
+    ],
+    [
+     "RTP Notícias",
+     "https://www.rtp.pt/noticias/rss"
+    ],
+    [
+     "Expresso",
+     "https://expresso.pt/rss"
+    ],
+    [
+     "Jornal de Notícias",
+     "https://www.jn.pt/rss/"
+    ]
+   ]
+  ],
+  "IN": [
+   "India",
+   "India",
+   [
+    [
+     "The Times of India",
+     "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+    ],
+    [
+     "The Hindu",
+     "https://www.thehindu.com/news/national/feeder/default.rss"
+    ],
+    [
+     "Hindustan Times",
+     "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml"
+    ],
+    [
+     "NDTV",
+     "https://feeds.feedburner.com/ndtvnews-top-stories"
+    ]
+   ]
+  ],
+  "JP": [
+   "Japón",
+   "Japan",
+   [
+    [
+     "NHK",
+     "https://www3.nhk.or.jp/rss/news/cat0.xml"
+    ],
+    [
+     "The Japan Times",
+     "https://www.japantimes.co.jp/feed/"
+    ],
+    [
+     "Asahi Shimbun",
+     "https://www.asahi.com/rss/asahi/newsheadlines.rdf"
+    ],
+    [
+     "Mainichi",
+     "https://mainichi.jp/rss/etc/mainichi-flash.rss"
+    ]
+   ]
+  ],
+  "AU": [
+   "Australia",
+   "Australia",
+   [
+    [
+     "ABC News",
+     "https://www.abc.net.au/news/feed/51120/rss.xml"
+    ],
+    [
+     "The Sydney Morning Herald",
+     "https://www.smh.com.au/rss/feed.xml"
+    ],
+    [
+     "Guardian Australia",
+     "https://www.theguardian.com/australia-news/rss"
+    ],
+    [
+     "SBS News",
+     "https://www.sbs.com.au/news/feed"
+    ],
+    [
+     "news.com.au",
+     "https://www.news.com.au/content-feeds/latest-news-national/"
+    ]
+   ]
+  ]
+ }
+}

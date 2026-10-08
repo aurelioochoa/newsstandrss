@@ -1,0 +1,6 @@
+.theos/
+packages/
+vendor/build/
+tests/nrss-probe
+tests/nrss-notify
+research/

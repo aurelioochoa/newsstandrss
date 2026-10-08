@@ -1,0 +1,9 @@
+Package: com.aurelio.newsstandrss
+Name: NewsstandRSS
+Version: 0.1.0
+Architecture: iphoneos-arm
+Description: Turns Newsstand into an RSS reader. A "+" button next to Store adds RSS or Atom feeds; each one becomes a magazine on the shelf with a cover made from its latest headlines.
+Maintainer: Aurelio
+Author: Aurelio
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2), uikittools, firmware (>= 6.0), firmware (<< 7.0)

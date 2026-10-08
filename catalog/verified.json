@@ -1,0 +1,574 @@
+{
+ "general": [
+  {
+   "title": "BBC News",
+   "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+  },
+  {
+   "title": "BBC Mundo",
+   "url": "https://feeds.bbci.co.uk/mundo/rss.xml"
+  },
+  {
+   "title": "The Guardian World",
+   "url": "https://www.theguardian.com/world/rss"
+  },
+  {
+   "title": "NYT World",
+   "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+  },
+  {
+   "title": "Al Jazeera",
+   "url": "https://www.aljazeera.com/xml/rss/all.xml"
+  },
+  {
+   "title": "DW Español",
+   "url": "https://rss.dw.com/xml/rss-sp-all"
+  },
+  {
+   "title": "France 24 Español",
+   "url": "https://www.france24.com/es/rss"
+  },
+  {
+   "title": "NPR News",
+   "url": "https://feeds.npr.org/1001/rss.xml"
+  },
+  {
+   "title": "The Verge",
+   "url": "https://www.theverge.com/rss/index.xml"
+  },
+  {
+   "title": "Ars Technica",
+   "url": "https://feeds.arstechnica.com/arstechnica/index"
+  },
+  {
+   "title": "Hacker News",
+   "url": "https://hnrss.org/frontpage"
+  },
+  {
+   "title": "Wired",
+   "url": "https://www.wired.com/feed/rss"
+  },
+  {
+   "title": "Engadget",
+   "url": "https://www.engadget.com/rss.xml"
+  },
+  {
+   "title": "Xataka",
+   "url": "https://www.xataka.com/feedburner.xml"
+  },
+  {
+   "title": "NASA",
+   "url": "https://www.nasa.gov/feed/"
+  },
+  {
+   "title": "ScienceDaily",
+   "url": "https://www.sciencedaily.com/rss/all.xml"
+  },
+  {
+   "title": "ESPN",
+   "url": "https://www.espn.com/espn/rss/news"
+  },
+  {
+   "title": "xkcd",
+   "url": "https://xkcd.com/atom.xml"
+  }
+ ],
+ "countries": {
+  "EC": {
+   "es": "Ecuador",
+   "en": "Ecuador",
+   "feeds": [
+    {
+     "title": "El Universo",
+     "url": "https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "El Comercio",
+     "url": "https://www.elcomercio.com/feed/"
+    },
+    {
+     "title": "Expreso",
+     "url": "https://www.expreso.ec/rss/home.xml"
+    },
+    {
+     "title": "Ecuavisa",
+     "url": "https://www.ecuavisa.com/rss/feed.xml"
+    },
+    {
+     "title": "Teleamazonas",
+     "url": "https://www.teleamazonas.com/rss/home.xml"
+    },
+    {
+     "title": "Extra",
+     "url": "https://www.extra.ec/rss/home.xml"
+    },
+    {
+     "title": "Metro Ecuador",
+     "url": "https://www.metroecuador.com.ec/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "El Mercurio",
+     "url": "https://elmercurio.com.ec/feed/"
+    },
+    {
+     "title": "El Diario",
+     "url": "https://www.eldiario.ec/rss/global.xml"
+    },
+    {
+     "title": "Plan V",
+     "url": "https://planv.com.ec/feed/"
+    },
+    {
+     "title": "Radio Pichincha",
+     "url": "https://www.radiopichincha.com/feed/"
+    }
+   ]
+  },
+  "MX": {
+   "es": "México",
+   "en": "Mexico",
+   "feeds": [
+    {
+     "title": "El Universal",
+     "url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "La Jornada",
+     "url": "https://www.jornada.com.mx/rss/edicion.xml"
+    },
+    {
+     "title": "El Financiero",
+     "url": "https://www.elfinanciero.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "Expansión",
+     "url": "https://expansion.mx/rss"
+    }
+   ]
+  },
+  "ES": {
+   "es": "España",
+   "en": "Spain",
+   "feeds": [
+    {
+     "title": "El País",
+     "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"
+    },
+    {
+     "title": "El Mundo",
+     "url": "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml"
+    },
+    {
+     "title": "elDiario.es",
+     "url": "https://www.eldiario.es/rss/"
+    },
+    {
+     "title": "20minutos",
+     "url": "https://www.20minutos.es/rss"
+    },
+    {
+     "title": "ABC",
+     "url": "https://www.abc.es/rss/2.0/portada/"
+    },
+    {
+     "title": "La Vanguardia",
+     "url": "https://www.lavanguardia.com/rss/home.xml"
+    },
+    {
+     "title": "Xataka",
+     "url": "https://www.xataka.com/feedburner.xml"
+    }
+   ]
+  },
+  "AR": {
+   "es": "Argentina",
+   "en": "Argentina",
+   "feeds": [
+    {
+     "title": "Clarín",
+     "url": "https://www.clarin.com/rss/lo-ultimo/"
+    },
+    {
+     "title": "La Nación",
+     "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "Infobae",
+     "url": "https://www.infobae.com/arc/outboundfeeds/rss/"
+    },
+    {
+     "title": "Perfil",
+     "url": "https://www.perfil.com/feed"
+    },
+    {
+     "title": "Ámbito",
+     "url": "https://www.ambito.com/rss/pages/home.xml"
+    }
+   ]
+  },
+  "CO": {
+   "es": "Colombia",
+   "en": "Colombia",
+   "feeds": [
+    {
+     "title": "El Tiempo",
+     "url": "https://www.eltiempo.com/rss/colombia.xml"
+    },
+    {
+     "title": "Semana",
+     "url": "https://www.semana.com/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "El Colombiano",
+     "url": "https://www.elcolombiano.com/rss/colombia.xml"
+    },
+    {
+     "title": "La Silla Vacía",
+     "url": "https://www.lasillavacia.com/feed/"
+    }
+   ]
+  },
+  "CL": {
+   "es": "Chile",
+   "en": "Chile",
+   "feeds": [
+    {
+     "title": "La Tercera",
+     "url": "https://www.latercera.com/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "Cooperativa",
+     "url": "https://m.cooperativa.cl/noticias/site/tax/port/all/rss_3___1.xml"
+    },
+    {
+     "title": "CIPER",
+     "url": "https://www.ciperchile.cl/feed/"
+    }
+   ]
+  },
+  "PE": {
+   "es": "Perú",
+   "en": "Peru",
+   "feeds": [
+    {
+     "title": "El Comercio",
+     "url": "https://elcomercio.pe/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "RPP",
+     "url": "https://rpp.pe/rss"
+    },
+    {
+     "title": "Gestión",
+     "url": "https://gestion.pe/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "La República",
+     "url": "https://larepublica.pe/rss/politica.xml"
+    },
+    {
+     "title": "Infobae Perú",
+     "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/peru/"
+    }
+   ]
+  },
+  "VE": {
+   "es": "Venezuela",
+   "en": "Venezuela",
+   "feeds": [
+    {
+     "title": "El Nacional",
+     "url": "https://www.elnacional.com/feed/"
+    },
+    {
+     "title": "El Pitazo",
+     "url": "https://elpitazo.net/feed/"
+    },
+    {
+     "title": "Tal Cual",
+     "url": "https://talcualdigital.com/feed/"
+    },
+    {
+     "title": "El Estímulo",
+     "url": "https://elestimulo.com/feed/"
+    }
+   ]
+  },
+  "UY": {
+   "es": "Uruguay",
+   "en": "Uruguay",
+   "feeds": [
+    {
+     "title": "Montevideo Portal",
+     "url": "https://www.montevideo.com.uy/anxml.aspx?59"
+    },
+    {
+     "title": "la diaria",
+     "url": "https://ladiaria.com.uy/feeds/articulos/"
+    },
+    {
+     "title": "Subrayado",
+     "url": "https://www.subrayado.com.uy/rss/pages/home.xml"
+    }
+   ]
+  },
+  "US": {
+   "es": "Estados Unidos",
+   "en": "United States",
+   "feeds": [
+    {
+     "title": "The New York Times",
+     "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    },
+    {
+     "title": "NPR",
+     "url": "https://feeds.npr.org/1001/rss.xml"
+    },
+    {
+     "title": "The Washington Post",
+     "url": "https://feeds.washingtonpost.com/rss/national"
+    },
+    {
+     "title": "CBS News",
+     "url": "https://www.cbsnews.com/latest/rss/main"
+    },
+    {
+     "title": "ABC News",
+     "url": "https://abcnews.com/abcnews/topstories"
+    },
+    {
+     "title": "Fox News",
+     "url": "https://moxie.foxnews.com/google-publisher/latest.xml"
+    },
+    {
+     "title": "Politico",
+     "url": "https://rss.politico.com/politics-news.xml"
+    }
+   ]
+  },
+  "GB": {
+   "es": "Reino Unido",
+   "en": "United Kingdom",
+   "feeds": [
+    {
+     "title": "BBC News",
+     "url": "https://feeds.bbci.co.uk/news/rss.xml"
+    },
+    {
+     "title": "The Guardian",
+     "url": "https://www.theguardian.com/uk/rss"
+    },
+    {
+     "title": "The Independent",
+     "url": "https://www.independent.co.uk/news/uk/rss"
+    },
+    {
+     "title": "Sky News",
+     "url": "https://feeds.skynews.com/feeds/rss/home.xml"
+    }
+   ]
+  },
+  "CA": {
+   "es": "Canadá",
+   "en": "Canada",
+   "feeds": [
+    {
+     "title": "CBC News",
+     "url": "https://www.cbc.ca/webfeed/rss/rss-topstories"
+    },
+    {
+     "title": "Global News",
+     "url": "https://globalnews.ca/feed/"
+    },
+    {
+     "title": "La Presse",
+     "url": "https://www.lapresse.ca/actualites/rss"
+    },
+    {
+     "title": "Radio-Canada",
+     "url": "https://ici.radio-canada.ca/info/rss/info/a-la-une"
+    }
+   ]
+  },
+  "BR": {
+   "es": "Brasil",
+   "en": "Brazil",
+   "feeds": [
+    {
+     "title": "g1",
+     "url": "https://g1.globo.com/rss/g1/"
+    },
+    {
+     "title": "Folha de S.Paulo",
+     "url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml"
+    },
+    {
+     "title": "BBC Brasil",
+     "url": "https://feeds.bbci.co.uk/portuguese/rss.xml"
+    },
+    {
+     "title": "CNN Brasil",
+     "url": "https://admin.cnnbrasil.com.br/feed/"
+    },
+    {
+     "title": "Poder360",
+     "url": "https://www.poder360.com.br/feed/"
+    }
+   ]
+  },
+  "FR": {
+   "es": "Francia",
+   "en": "France",
+   "feeds": [
+    {
+     "title": "Le Monde",
+     "url": "https://www.lemonde.fr/rss/une.xml"
+    },
+    {
+     "title": "France 24",
+     "url": "https://www.france24.com/fr/rss"
+    },
+    {
+     "title": "Le Figaro",
+     "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml"
+    },
+    {
+     "title": "Libération",
+     "url": "https://www.liberation.fr/arc/outboundfeeds/rss/?outputType=xml"
+    },
+    {
+     "title": "franceinfo",
+     "url": "https://www.franceinfo.fr/titres.rss"
+    },
+    {
+     "title": "20 Minutes",
+     "url": "https://www.20minutes.fr/feeds/rss-une.xml"
+    }
+   ]
+  },
+  "DE": {
+   "es": "Alemania",
+   "en": "Germany",
+   "feeds": [
+    {
+     "title": "tagesschau",
+     "url": "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml"
+    },
+    {
+     "title": "Der Spiegel",
+     "url": "https://www.spiegel.de/schlagzeilen/index.rss"
+    },
+    {
+     "title": "Die Zeit",
+     "url": "https://newsfeed.zeit.de/index"
+    },
+    {
+     "title": "FAZ",
+     "url": "https://www.faz.net/rss/aktuell/"
+    },
+    {
+     "title": "Süddeutsche Zeitung",
+     "url": "https://rss.sueddeutsche.de/rss/Topthemen"
+    },
+    {
+     "title": "heise online",
+     "url": "https://www.heise.de/rss/heise-atom.xml"
+    }
+   ]
+  },
+  "IT": {
+   "es": "Italia",
+   "en": "Italy",
+   "feeds": [
+    {
+     "title": "ANSA",
+     "url": "https://www.ansa.it/sito/notizie/topnews/topnews_rss.xml"
+    },
+    {
+     "title": "la Repubblica",
+     "url": "https://www.repubblica.it/rss/homepage/rss2.0.xml"
+    },
+    {
+     "title": "Sky TG24",
+     "url": "https://tg24.sky.it/rss/tg24.xml"
+    }
+   ]
+  },
+  "PT": {
+   "es": "Portugal",
+   "en": "Portugal",
+   "feeds": [
+    {
+     "title": "Público",
+     "url": "https://feeds.feedburner.com/PublicoRSS"
+    },
+    {
+     "title": "Observador",
+     "url": "https://observador.pt/feed/"
+    },
+    {
+     "title": "RTP Notícias",
+     "url": "https://www.rtp.pt/noticias/rss"
+    }
+   ]
+  },
+  "IN": {
+   "es": "India",
+   "en": "India",
+   "feeds": [
+    {
+     "title": "The Times of India",
+     "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+    },
+    {
+     "title": "The Hindu",
+     "url": "https://www.thehindu.com/news/national/feeder/default.rss"
+    },
+    {
+     "title": "Hindustan Times",
+     "url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml"
+    },
+    {
+     "title": "NDTV",
+     "url": "https://feeds.feedburner.com/ndtvnews-top-stories"
+    }
+   ]
+  },
+  "JP": {
+   "es": "Japón",
+   "en": "Japan",
+   "feeds": [
+    {
+     "title": "The Japan Times",
+     "url": "https://www.japantimes.co.jp/feed/"
+    },
+    {
+     "title": "Asahi Shimbun",
+     "url": "https://www.asahi.com/rss/asahi/newsheadlines.rdf"
+    },
+    {
+     "title": "Mainichi",
+     "url": "https://mainichi.jp/rss/etc/mainichi-flash.rss"
+    }
+   ]
+  },
+  "AU": {
+   "es": "Australia",
+   "en": "Australia",
+   "feeds": [
+    {
+     "title": "ABC News",
+     "url": "https://www.abc.net.au/news/feed/51120/rss.xml"
+    },
+    {
+     "title": "The Sydney Morning Herald",
+     "url": "https://www.smh.com.au/rss/feed.xml"
+    },
+    {
+     "title": "Guardian Australia",
+     "url": "https://www.theguardian.com/australia-news/rss"
+    }
+   ]
+  }
+ }
+}
