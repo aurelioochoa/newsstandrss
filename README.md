@@ -110,5 +110,5 @@ them from that list.
 1. Bump `Version` in `control`; published packages are kept unchanged so installed devices can detect updates.
 2. Run `make cydia` to build a release with gzip archives, copy it to `repo/debs/`, and generate `Packages`,
    `Packages.gz`, `Packages.bz2` and `Release`.
-3. Run `make check-cydia`, commit the source, package and indexes, and push to `main`. GitHub Pages serves the
-   repository root, with `.nojekyll` preserving the flat APT source at `repo/`.
+3. Run `make check-cydia`, commit the source, package and indexes, and push to `main`. The GitHub Pages workflow
+   verifies the indexes and release package, then publishes the source page and `repo/` automatically.

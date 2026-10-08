@@ -6,3 +6,4 @@ tests/nrss-notify
 research/
 __pycache__/
 *.pyc
+_site/
