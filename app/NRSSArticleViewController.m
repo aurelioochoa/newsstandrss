@@ -2,6 +2,7 @@
 #import "NRSSFeedParser.h"
 #import "NRSSFetcher.h"
 #import "NRSSShared.h"
+#import "NRSSSpeechReader.h"
 
 @interface NRSSArticleViewController () <UIWebViewDelegate, UIActionSheetDelegate>
 @end
@@ -47,6 +48,11 @@ static NSString *NRSSImageType(NSData *data) {
     NSString *_feedTitle;
     UIWebView *_webView;
     BOOL _checkedImages;
+    BOOL _articleLoaded;
+    NRSSSpeechReader *_speechReader;
+    UIBarButtonItem *_speechButton;
+    UIBarButtonItem *_stopSpeechButton;
+    UISegmentedControl *_speechSpeed;
 }
 
 - (instancetype)initWithItem:(NRSSItem *)item feedTitle:(NSString *)feedTitle {
@@ -121,22 +127,108 @@ static NSString *NRSSImageType(NSData *data) {
         "img,video,iframe,embed,object{max-width:100%%!important;height:auto}"
         "img.lead{display:block;width:100%%;margin:0 0 16px}figure{margin:0 0 14px}figcaption{font:12px 'Helvetica Neue';opacity:.7}"
         "pre,code{white-space:pre-wrap;font-size:13px}table{max-width:100%%;display:block;overflow:auto}"
-        "</style></head><body><div class=\"kicker\">%@</div><h1>%@</h1><div class=\"meta\">%@</div>%@%@%@</body></html>",
+        "</style></head><body><div class=\"kicker\">%@</div><h1 id=\"nrss-title\">%@</h1><div class=\"meta\">%@</div>%@<div id=\"nrss-content\">%@</div>%@</body></html>",
         style, NRSSEscapeHTML(_feedTitle), NRSSEscapeHTML(_item.title), [meta componentsJoinedByString:@" · "], lead, content, more];
 }
 
 - (void)dealloc {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    _speechReader.stateDidChange = nil;
+    [_speechReader stop];
     _webView.delegate = nil;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _speechReader = [[NRSSSpeechReader alloc] init];
+    float savedSpeed = [[NSUserDefaults standardUserDefaults] floatForKey:@"NRSSSpeechSpeed"];
+    _speechReader.speed = savedSpeed;
+    __weak NRSSArticleViewController *weakSelf = self;
+    _speechReader.stateDidChange = ^{ [weakSelf updateSpeechControls]; };
+    _speechButton = [[UIBarButtonItem alloc] initWithTitle:NRSSLocalized(@"Read Aloud", @"Leer en voz alta")
+        style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSpeech)];
+    _speechButton.width = 126;
+    _speechSpeed = [[UISegmentedControl alloc] initWithItems:@[@"1×", @"1.5×", @"2×"]];
+    _speechSpeed.frame = CGRectMake(0, 0, 120, 30);
+    _speechSpeed.segmentedControlStyle = UISegmentedControlStyleBar;
+    _speechSpeed.selectedSegmentIndex = _speechReader.speed == 2.0f ? 2 : _speechReader.speed == 1.5f ? 1 : 0;
+    _speechSpeed.accessibilityLabel = NRSSLocalized(@"Reading speed", @"Velocidad de lectura");
+    [_speechSpeed addTarget:self action:@selector(changeSpeechSpeed) forControlEvents:UIControlEventValueChanged];
+    _stopSpeechButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+        target:self action:@selector(stopSpeech)];
+    _stopSpeechButton.accessibilityLabel = NRSSLocalized(@"Stop reading", @"Detener lectura");
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    self.toolbarItems = @[_speechButton, space, [[UIBarButtonItem alloc] initWithCustomView:_speechSpeed],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], _stopSpeechButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseSpeechWhenInactive)
+        name:UIApplicationWillResignActiveNotification object:nil];
+    [self updateSpeechControls];
     NSURL *base = _item.link ? [NSURL URLWithString:_item.link] : nil;
     [_webView loadHTMLString:[self articleHTML] baseURL:base];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_speechReader stop];
+    [self.navigationController setToolbarHidden:YES animated:animated];
+}
+
+- (void)updateSpeechControls {
+    NRSSSpeechState state = _speechReader.state;
+    _speechButton.title = state == NRSSSpeechStateStopped ? NRSSLocalized(@"Read Aloud", @"Leer en voz alta")
+        : state == NRSSSpeechStateSpeaking ? NRSSLocalized(@"Pause", @"Pausar") : NRSSLocalized(@"Resume", @"Reanudar");
+    _speechButton.enabled = _articleLoaded && state != NRSSSpeechStatePausing;
+    _stopSpeechButton.enabled = state != NRSSSpeechStateStopped;
+    if (_speechReader.error)
+        [[[UIAlertView alloc] initWithTitle:NRSSLocalized(@"Couldn't Read Aloud", @"No se pudo leer en voz alta")
+            message:NRSSLocalized(@"Check that a voice is installed in Settings → General → Accessibility → Speak Selection.",
+                @"Comprueba que haya una voz instalada en Ajustes → General → Accesibilidad → Leer selección.")
+            delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+- (void)toggleSpeech {
+    if (_speechReader.state == NRSSSpeechStateSpeaking) {
+        [_speechReader pause];
+    } else if (_speechReader.state == NRSSSpeechStatePaused) {
+        [_speechReader resume];
+    } else if (_speechReader.state == NRSSSpeechStateStopped && _articleLoaded) {
+        // innerText decodes entities and excludes hidden markup, metadata and the website button.
+        NSString *text = [_webView stringByEvaluatingJavaScriptFromString:
+            @"(function(){var t=document.getElementById('nrss-title'),b=document.getElementById('nrss-content');"
+             "return (t?t.innerText:'')+'\\n\\n'+(b?b.innerText:'');})()"];
+        text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (!text.length)
+            return;
+        NSString *language = (__bridge_transfer NSString *)CFStringTokenizerCopyBestStringLanguage((__bridge CFStringRef)text,
+            CFRangeMake(0, text.length));
+        if (!language.length)
+            language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        [_speechReader startText:text languageCode:language];
+    }
+}
+
+- (void)changeSpeechSpeed {
+    _speechReader.speed = _speechSpeed.selectedSegmentIndex == 2 ? 2.0f : _speechSpeed.selectedSegmentIndex == 1 ? 1.5f : 1.0f;
+    [[NSUserDefaults standardUserDefaults] setFloat:_speechReader.speed forKey:@"NRSSSpeechSpeed"];
+}
+
+- (void)stopSpeech {
+    [_speechReader stop];
+}
+
+- (void)pauseSpeechWhenInactive {
+    [_speechReader pause];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    _articleLoaded = YES;
+    [self updateSpeechControls];
     if (_checkedImages)
         return;
     _checkedImages = YES;

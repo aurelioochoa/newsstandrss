@@ -12,6 +12,8 @@ Tested on an iPhone 4 (iPhone3,2) running iOS 6.1.3.
 
 - **Add**: Newsstand → **+**, type `example.com` or a feed address. Settings → NewsstandRSS → *Add Feed…* also works.
 - **Read**: tap a magazine. Pull to refresh; the action button marks everything read or opens the website.
+- **Listen**: open an article and tap **Read Aloud** in the bottom bar. Choose **1× / 1.5× / 2×**, pause and
+  resume, or tap stop. Reading pauses when the app becomes inactive and stops when you leave the article.
 - **Edit / delete**: Settings → NewsstandRSS → a feed (rename, change address, delete), or hold a magazine and tap ×.
 - **Suggested feeds** (Settings → NewsstandRSS → Suggested Feeds): pick your country to add its most relevant
   news sources at once (20 countries, 94 sources, including 11 from Ecuador), or switch general international,
@@ -78,6 +80,10 @@ automatically; `scripts/make-trust-anchors.py` regenerates `shared/NRSSTrustAnch
 Diagnostic builds add a `com.aurelio.newsstandrss/test` notification handled in SpringBoard (open/close Newsstand,
 add feeds, launch apps, open URLs, capture the screen, report state; `unlock` only works when no passcode is set).
 `scripts/sbtest.sh <op> [key value]…` drives it. Install a release build when done.
+
+`scripts/test-speech.sh` tests the iOS 6 voice engine on the connected phone. With a diagnostic build installed,
+`scripts/test-speech.sh --ui` also tests the reader buttons, rendered article text, speed memory and navigation;
+screen captures are saved in `/tmp/nrss-reader-initial.png` and `/tmp/nrss-reader-paused.png` on the host.
 
 Removing the package deletes the magazines but keeps `/var/mobile/Library/NewsstandRSS`; reinstalling recreates
 them from that list.
